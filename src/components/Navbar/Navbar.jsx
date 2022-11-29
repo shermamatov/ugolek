@@ -20,7 +20,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [searchState, setSearchState] = React.useState(true);
+    const [searchState, setSearchState] = React.useState(false);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
             position="sticky"
         >
             <Toolbar
-                sx={{ display: "flex", width: "80%", margin: "auto" }}
+                sx={{ display: "flex", width: "85%", margin: "auto" }}
                 disableGutters
             >
                 <img className="logoBig" src={LogoStone} width="35px" />
