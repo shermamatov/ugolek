@@ -1,0 +1,10 @@
+@media all and (min-width: 900px) {
+    .logoMin {
+        display: none;
+    }
+}
+@media all and (max-width: 900px) {
+    .logoBig {
+        display: none;
+    }
+}
