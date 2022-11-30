@@ -49,7 +49,11 @@ function ResponsiveAppBar() {
             position="sticky"
         >
             <Toolbar
-                sx={{ display: "flex", width: "85%", margin: "auto" }}
+                sx={{
+                    display: "flex",
+                    width: "90%",
+                    margin: "auto",
+                }}
                 disableGutters
             >
                 <img className="logoBig" src={LogoStone} width="35px" />
@@ -66,7 +70,7 @@ function ResponsiveAppBar() {
                         textDecoration: "none",
                     }}
                 >
-                    ugol.tv
+                    ugolek.tv
                 </Typography>
                 <Box
                     sx={{
@@ -158,7 +162,7 @@ function ResponsiveAppBar() {
                         textDecoration: "none",
                     }}
                 >
-                    ugol.tv
+                    ugolek.tv
                 </Typography>
                 <Box
                     sx={{

@@ -1,22 +1,112 @@
 {
-  "product": [
-    {
-      "name": "name",
-      "type": "type",
-      "year": "3579",
-      "disc": "discription",
-      "img": "image",
-      "film": "film",
-      "id": 1
-    },
-    {
-      "name": "name",
-      "type": "type",
-      "year": "3579",
-      "disc": "discription",
-      "img": "image",
-      "film": "film",
-      "id": 2
-    }
-  ]
+    "product": [
+        {
+            "name": "dora",
+            "type": "type",
+            "year": "2020",
+            "disc": "discription",
+            "img": "https://thumbs.dfs.ivi.ru/storage29/contents/c/4/f3b4f712ab844ed3349bc9dede0e40.jpg",
+            "film": "film",
+            "id": 1
+        },
+        {
+            "name": "wakanda forever",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://www.cinemaplus.az/site/assets/files/0/21/79/635/wakanda_700x1000_2.350x0.png",
+            "film": "film",
+            "id": 2
+        },
+        {
+            "name": "ancharted",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://static.kinoafisha.info/k/movie_posters/220/upload/movie_posters/9/4/9/8175949/ee89ae7cb1cc102e2067c96f5067fcf4.jpg",
+            "film": "film",
+            "id": 3
+        },
+        {
+            "name": "dora",
+            "type": "type",
+            "year": "2020",
+            "disc": "discription",
+            "img": "https://thumbs.dfs.ivi.ru/storage29/contents/c/4/f3b4f712ab844ed3349bc9dede0e40.jpg",
+            "film": "film",
+            "id": 4
+        },
+        {
+            "name": "wakanda forever",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://www.cinemaplus.az/site/assets/files/0/21/79/635/wakanda_700x1000_2.350x0.png",
+            "film": "film",
+            "id": 5
+        },
+        {
+            "name": "ancharted",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://static.kinoafisha.info/k/movie_posters/220/upload/movie_posters/9/4/9/8175949/ee89ae7cb1cc102e2067c96f5067fcf4.jpg",
+            "film": "film",
+            "id": 6
+        },
+        {
+            "name": "dora",
+            "type": "type",
+            "year": "2020",
+            "disc": "discription",
+            "img": "https://thumbs.dfs.ivi.ru/storage29/contents/c/4/f3b4f712ab844ed3349bc9dede0e40.jpg",
+            "film": "film",
+            "id": 7
+        },
+        {
+            "name": "wakanda forever",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://www.cinemaplus.az/site/assets/files/0/21/79/635/wakanda_700x1000_2.350x0.png",
+            "film": "film",
+            "id": 8
+        },
+        {
+            "name": "ancharted",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://static.kinoafisha.info/k/movie_posters/220/upload/movie_posters/9/4/9/8175949/ee89ae7cb1cc102e2067c96f5067fcf4.jpg",
+            "film": "film",
+            "id": 9
+        },
+        {
+            "name": "dora",
+            "type": "type",
+            "year": "2020",
+            "disc": "discription",
+            "img": "https://thumbs.dfs.ivi.ru/storage29/contents/c/4/f3b4f712ab844ed3349bc9dede0e40.jpg",
+            "film": "film",
+            "id": 10
+        },
+        {
+            "name": "wakanda forever",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://www.cinemaplus.az/site/assets/files/0/21/79/635/wakanda_700x1000_2.350x0.png",
+            "film": "film",
+            "id": 11
+        },
+        {
+            "name": "ancharted",
+            "type": "type",
+            "year": "2022",
+            "disc": "discription",
+            "img": "https://static.kinoafisha.info/k/movie_posters/220/upload/movie_posters/9/4/9/8175949/ee89ae7cb1cc102e2067c96f5067fcf4.jpg",
+            "film": "film",
+            "id": 12
+        }
+    ]
 }
