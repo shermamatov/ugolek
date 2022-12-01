@@ -52,19 +52,7 @@ export default class CenterMode extends Component {
         <Slider {...settings}>
           <div className="slide">
             <img
-              src="https://i.pinimg.com/originals/ee/5f/e1/ee5fe132f18c1c63f57af16616104560.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://wallup.net/wp-content/uploads/2016/01/113166-comics-Spider-Man.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://media.kg-portal.ru/tv/s/samuraijack/production/samuraijack_1.jpg"
+              src="https://miridei.com/files/img/c/idei-dosuga/kakoi-film-posmotret/0_croods.jpg"
               alt=""
             />
           </div>
@@ -82,7 +70,19 @@ export default class CenterMode extends Component {
           </div>
           <div className="slide">
             <img
-              src="http://3.bp.blogspot.com/_AERv7DYKpsY/TKSWmLRfRjI/AAAAAAAABo0/34dPg7Xewac/s1600/1.jpg"
+              src="https://images.iptv.rt.ru/images/cc3n4lbir4ssk11vqk4g.jpg"
+              alt=""
+            />
+          </div>
+          <div className="slide">
+            <img
+              src="https://miridei.com/files/img/c/idei-dosuga/kakoi-film-posmotret/0_croods.jpg"
+              alt=""
+            />
+          </div>
+          <div className="slide">
+            <img
+              src="https://images.iptv.rt.ru/images/cc3n4lbir4ssk11vqk4g.jpg"
               alt=""
             />
           </div>
