@@ -49,7 +49,11 @@ function ResponsiveAppBar() {
       position="sticky"
     >
       <Toolbar
-        sx={{ display: "flex", width: "85%", margin: "auto" }}
+        sx={{
+          display: "flex",
+          width: "90%",
+          margin: "auto",
+        }}
         disableGutters
       >
         <img className="logoBig" src={LogoStone} width="35px" />
@@ -59,14 +63,14 @@ function ResponsiveAppBar() {
           sx={{
             mr: 2,
             display: { xs: "none", md: "flex" },
-            fontFamily: "Montserrat, sans-serif",
+            fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
           }}
         >
-          <p className="ugol-tv">УГОЛЬ ТВ</p>
+          ugolek.tv
         </Typography>
         <Box
           sx={{
@@ -111,7 +115,7 @@ function ResponsiveAppBar() {
               }}
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">ДОБАВИТЬ</Typography>
+              <Typography textAlign="center">ADD</Typography>
             </MenuItem>
             <MenuItem
               sx={{
@@ -119,7 +123,7 @@ function ResponsiveAppBar() {
               }}
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">РАНДОМ</Typography>
+              <Typography textAlign="center">RANDOM</Typography>
             </MenuItem>
             <MenuItem
               sx={{
@@ -127,10 +131,10 @@ function ResponsiveAppBar() {
               }}
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">О НАС</Typography>
+              <Typography textAlign="center">ABOUT US</Typography>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">СВЯЖИТЕСЬ С НАМИ</Typography>
+              <Typography textAlign="center">CONTACT US</Typography>
             </MenuItem>
           </Menu>
         </Box>
@@ -152,7 +156,7 @@ function ResponsiveAppBar() {
             textDecoration: "none",
           }}
         >
-          УГОЛЬ ТВ
+          ugolek.tv
         </Typography>
         <Box
           sx={{
@@ -160,17 +164,15 @@ function ResponsiveAppBar() {
             display: { xs: "none", md: "flex" },
           }}
         >
+          <Button sx={{ my: 2, color: "white", display: "block" }}>ADD</Button>
           <Button sx={{ my: 2, color: "white", display: "block" }}>
-            ДОБАВИТЬ
+            RANDOM
           </Button>
           <Button sx={{ my: 2, color: "white", display: "block" }}>
-            РАНДОМ
+            ABOUT US
           </Button>
           <Button sx={{ my: 2, color: "white", display: "block" }}>
-            О НАС
-          </Button>
-          <Button sx={{ my: 2, color: "white", display: "block" }}>
-            СВЯЖИТЕСЬ С НАМИ
+            CONTACT US
           </Button>
         </Box>
         <Box sx={{ flexGrow: 0 }}>

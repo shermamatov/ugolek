@@ -7,15 +7,15 @@ import { CardActionArea } from "@mui/material";
 
 export default function FilmCard({ item }) {
     return (
-        <Card sx={{ maxWidth: 345, backgroundColor: "#141414" }}>
+        <Card sx={{ maxWidth: 240, backgroundColor: "#141414" }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="140"
+                    sx={{ width: "100%" }}
                     image={item.img}
                     alt="green iguana"
                 />
-                <CardContent>
+                <CardContent sx={{ height: "20%" }}>
                     <Typography gutterBottom variant="h5" component="div">
                         {item.name}
                     </Typography>
