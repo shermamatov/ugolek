@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { filmContext } from "../../Contexts/FilmContextProvider";
+import "./AddFilm.css";
 
 const AddFilm = () => {
     const [name, setName] = useState("");
@@ -26,20 +27,18 @@ const AddFilm = () => {
             <Box
                 align="center"
                 sx={{
-                    height: "70vh",
+                    height: "100vh",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    backgroundImage:
+                        "url(https://i.guim.co.uk/img/media/006e580ef0ee8c46c17b265f2bf66e7f0c61b746/3436_0_8487_5097/master/8487.jpg?width=1020&quality=45&dpr=2&s=none)",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
                 }}
             >
-                <Typography
-                    sx={{
-                        color: "white",
-                        fontSize: "30px",
-                    }}
-                >
-                    ADD FILM PANEL
-                </Typography>
+                <p className="text-adminPanel">АДМИН ПАНЕЛЬ</p>
+
                 <Box
                     sx={{
                         width: "60vw",
@@ -49,102 +48,46 @@ const AddFilm = () => {
                         gridGap: "10px",
                     }}
                 >
-                    <TextField
-                        sx={{
-                            borderColor: "white",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                    <input
+                        className="inputs"
                         onChange={(e) => setName(e.target.value)}
-                        fullWidth
-                        placeholder="Name"
-                        variant="outlined"
-                        size="small"
+                        placeholder="НАЗВАНИЕ"
                     />
 
-                    <TextField
+                    <input
+                        className="inputs"
                         onChange={(e) => setType(e.target.value)}
-                        placeholder="type"
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
-                        fullWidth
-                        variant="outlined"
-                        size="small"
+                        placeholder="ТИП/ЖАНР"
                     />
 
-                    <TextField
+                    <input
+                        className="inputs"
                         onChange={(e) => setYear(e.target.value)}
-                        placeholder="year"
+                        placeholder="ГОД ИЗДАНИЯ"
                         type="number"
-                        sx={{
-                            borderColor: "black",
-                            gridColumn: "1/3",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
-                        fullWidth
-                        variant="outlined"
-                        size="small"
                     />
 
-                    <TextField
+                    <input
+                        className="inputs"
                         onChange={(e) => setDisc(e.target.value)}
-                        placeholder="discription"
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
-                        fullWidth
-                        variant="outlined"
-                        size="small"
+                        placeholder="ОПИСАНИЕ"
                     />
 
-                    <TextField
+                    <input
+                        className="inputs"
                         onChange={(e) => setImg(e.target.value)}
-                        placeholder="image"
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
-                        fullWidth
-                        variant="outlined"
-                        size="small"
+                        placeholder="КАРТИНКА"
                     />
 
-                    <TextField
+                    <input
+                        className="inputs"
                         onChange={(e) => setFilm(e.target.value)}
-                        placeholder="film"
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                            gridColumn: "1/3",
-                        }}
-                        fullWidth
-                        variant="outlined"
-                        size="small"
+                        placeholder="ФИЛЬМ"
                     />
 
-                    <Button
-                        onClick={handleData}
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "#0B1F4F",
-                            color: "white",
-                            transition: "1000s",
-                            gridColumn: "1/3",
-                        }}
-                        variant="outlined"
-                        fullWidth
-                        size="large"
-                    >
-                        ADD FILM
-                    </Button>
+                    <button className="button-add" onClick={handleData}>
+                        ДОБАВИТЬ ФИЛЬМ
+                    </button>
                 </Box>
             </Box>
         </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import AddFilm from "../components/AddFilm.jsx/AddFilm";
+import AddFilm from "../components/AddFilm/AddFilm";
 
 const AddFilmPage = () => {
-    return (
-        <div>
-            <AddFilm />
-        </div>
-    );
+  return (
+    <div>
+      <AddFilm />
+    </div>
+  );
 };
 
 export default AddFilmPage;

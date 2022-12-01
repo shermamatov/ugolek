@@ -10,6 +10,11 @@ function SampleNextArrow(props) {
             className={className}
             sx={{
                 ...style,
+                zIndex: "10",
+                // color: "red",
+                // backgroundColor: "red",
+                height: "100%",
+                width: "100px",
                 display: { sm: "block", xs: "none" },
                 fontSize: "45px",
             }}
@@ -25,7 +30,9 @@ function SamplePrevArrow(props) {
             className={className}
             sx={{
                 ...style,
-                zIndex: "3",
+                zIndex: "10",
+                height: "100%",
+                width: "100px",
                 display: { sm: "block", xs: "none" },
                 fontSize: "45px",
             }}
