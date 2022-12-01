@@ -1,18 +1,28 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { filmContext } from "../../Contexts/FilmContextProvider";
 
-const AddFilm = () => {
+const EditFilm = () => {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
     const [year, setYear] = useState(0);
     const [disc, setDisc] = useState("");
     const [img, setImg] = useState("");
     const [film, setFilm] = useState("");
-    const { addData, getData } = useContext(filmContext);
+    const { oneData, editData } = useContext(filmContext);
     useEffect(() => {
-        getData();
-    }, []);
+        if (oneData) {
+            setName(oneData.name);
+            setType(oneData.type);
+            setYear(oneData.year);
+            setDisc(oneData.disc);
+            setImg(oneData.img);
+            setFilm(oneData.film);
+        }
+    }, [oneData]);
+    const navigate = useNavigate();
+    const { id } = useParams();
     function handleData() {
         let obj = {
             name,
@@ -22,7 +32,7 @@ const AddFilm = () => {
             img,
             film,
         };
-        addData(obj);
+        editData(id, obj);
     }
     return (
         <div>
@@ -59,6 +69,7 @@ const AddFilm = () => {
                             borderRadius: "4px",
                         }}
                         onChange={(e) => setName(e.target.value)}
+                        value={name}
                         fullWidth
                         placeholder="Name"
                         variant="outlined"
@@ -68,6 +79,7 @@ const AddFilm = () => {
                     <TextField
                         onChange={(e) => setType(e.target.value)}
                         placeholder="type"
+                        value={type}
                         sx={{
                             borderColor: "black",
                             backgroundColor: "white",
@@ -81,6 +93,7 @@ const AddFilm = () => {
                     <TextField
                         onChange={(e) => setYear(e.target.value)}
                         placeholder="year"
+                        value={year}
                         type="number"
                         sx={{
                             borderColor: "black",
@@ -96,6 +109,7 @@ const AddFilm = () => {
                     <TextField
                         onChange={(e) => setDisc(e.target.value)}
                         placeholder="discription"
+                        value={disc}
                         sx={{
                             borderColor: "black",
                             backgroundColor: "white",
@@ -109,6 +123,7 @@ const AddFilm = () => {
                     <TextField
                         onChange={(e) => setImg(e.target.value)}
                         placeholder="image"
+                        value={img}
                         sx={{
                             borderColor: "black",
                             backgroundColor: "white",
@@ -122,6 +137,7 @@ const AddFilm = () => {
                     <TextField
                         onChange={(e) => setFilm(e.target.value)}
                         placeholder="film"
+                        value={film}
                         sx={{
                             borderColor: "black",
                             backgroundColor: "white",
@@ -134,7 +150,10 @@ const AddFilm = () => {
                     />
 
                     <Button
-                        onClick={handleData}
+                        onClick={() => {
+                            handleData();
+                            navigate(`/edit/${id}`);
+                        }}
                         sx={{
                             borderColor: "black",
                             backgroundColor: "#0B1F4F",
@@ -154,4 +173,4 @@ const AddFilm = () => {
     );
 };
 
-export default AddFilm;
+export default EditFilm;
