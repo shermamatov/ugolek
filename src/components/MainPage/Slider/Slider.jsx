@@ -25,7 +25,9 @@ function SamplePrevArrow(props) {
       className={className}
       sx={{
         ...style,
-        zIndex: "3",
+        zIndex: "10",
+        height: "100%",
+        width: "100px",
         display: { sm: "block", xs: "none" },
         fontSize: "45px",
       }}
@@ -52,37 +54,7 @@ export default class CenterMode extends Component {
         <Slider {...settings}>
           <div className="slide">
             <img
-              src="https://miridei.com/files/img/c/idei-dosuga/kakoi-film-posmotret/0_croods.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://images.iptv.rt.ru/images/cc3n4lbir4ssk11vqk4g.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://miridei.com/files/img/c/idei-dosuga/kakoi-film-posmotret/0_croods.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://images.iptv.rt.ru/images/cc3n4lbir4ssk11vqk4g.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://miridei.com/files/img/c/idei-dosuga/kakoi-film-posmotret/0_croods.jpg"
-              alt=""
-            />
-          </div>
-          <div className="slide">
-            <img
-              src="https://images.iptv.rt.ru/images/cc3n4lbir4ssk11vqk4g.jpg"
+              src="https://i.pinimg.com/564x/ee/5f/e1/ee5fe132f18c1c63f57af16616104560.jpg"
               alt=""
             />
           </div>
