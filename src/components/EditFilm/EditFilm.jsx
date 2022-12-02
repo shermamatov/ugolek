@@ -2,6 +2,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { filmContext } from "../../Contexts/FilmContextProvider";
+import "./EditFilm.css";
 
 const EditFilm = () => {
     const [name, setName] = useState("");
@@ -39,10 +40,14 @@ const EditFilm = () => {
             <Box
                 align="center"
                 sx={{
-                    height: "70vh",
+                    height: { sm: "100vh", xs: "75vh" },
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    backgroundImage:
+                        "url(https://i.guim.co.uk/img/media/006e580ef0ee8c46c17b265f2bf66e7f0c61b746/3436_0_8487_5097/master/8487.jpg?width=1020&quality=45&dpr=2&s=none)",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
                 }}
             >
                 <Typography
@@ -51,11 +56,11 @@ const EditFilm = () => {
                         fontSize: "30px",
                     }}
                 >
-                    ADD FILM PANEL
+                    ПАНЕЛЬ ИЗМЕНЕНИЯ
                 </Typography>
                 <Box
                     sx={{
-                        width: "60vw",
+                        width: { sm: "60vw", xs: "90%" },
                         margin: "3vh auto 10vh",
                         display: "grid",
                         gridTemplateColumns: "1fr 1fr ",
@@ -63,11 +68,12 @@ const EditFilm = () => {
                     }}
                 >
                     <TextField
-                        sx={{
-                            borderColor: "white",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                        // sx={{
+                        //     borderColor: "white",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        // }}
+                        className="inputs"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                         fullWidth
@@ -77,95 +83,101 @@ const EditFilm = () => {
                     />
 
                     <TextField
+                        className="inputs"
                         onChange={(e) => setType(e.target.value)}
                         placeholder="type"
                         value={type}
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                        // sx={{
+                        //     borderColor: "black",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        // }}
                         fullWidth
                         variant="outlined"
                         size="small"
                     />
 
                     <TextField
+                        className="inputs"
                         onChange={(e) => setYear(e.target.value)}
                         placeholder="year"
                         value={year}
                         type="number"
-                        sx={{
-                            borderColor: "black",
-                            gridColumn: "1/3",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                        // sx={{
+                        //     borderColor: "black",
+                        //     gridColumn: "1/3",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        // }}
                         fullWidth
                         variant="outlined"
                         size="small"
                     />
 
                     <TextField
+                        className="inputs"
                         onChange={(e) => setDisc(e.target.value)}
                         placeholder="discription"
                         value={disc}
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                        // sx={{
+                        //     borderColor: "black",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        // }}
                         fullWidth
                         variant="outlined"
                         size="small"
                     />
 
                     <TextField
+                        className="inputs"
                         onChange={(e) => setImg(e.target.value)}
                         placeholder="image"
                         value={img}
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                        }}
+                        // sx={{
+                        //     borderColor: "black",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        // }}
                         fullWidth
                         variant="outlined"
                         size="small"
                     />
 
                     <TextField
+                        className="inputs"
                         onChange={(e) => setFilm(e.target.value)}
                         placeholder="film"
                         value={film}
-                        sx={{
-                            borderColor: "black",
-                            backgroundColor: "white",
-                            borderRadius: "4px",
-                            gridColumn: "1/3",
-                        }}
+                        // sx={{
+                        //     borderColor: "black",
+                        //     backgroundColor: "white",
+                        //     borderRadius: "4px",
+                        //     gridColumn: "1/3",
+                        // }}
                         fullWidth
                         variant="outlined"
                         size="small"
                     />
 
                     <Button
+                        className="button-add"
                         onClick={() => {
                             handleData();
                             navigate(`/edit/${id}`);
                         }}
                         sx={{
                             borderColor: "black",
-                            backgroundColor: "#0B1F4F",
+                            backgroundColor: "black",
                             color: "white",
                             transition: "1000s",
-                            gridColumn: "1/3",
+                            gridColumn: "1/2",
                         }}
                         variant="outlined"
-                        fullWidth
-                        size="large"
+                        // fullWidth
+                        // size="large"
                     >
-                        ADD FILM
+                        ИЗМЕНИТЬ ФИЛЬМ
                     </Button>
                 </Box>
             </Box>
