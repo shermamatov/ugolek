@@ -13,7 +13,6 @@ const FilmContextProvider = ({ children }) => {
     async function getData() {
         let { data } = await axios.get(FILM_API);
         setData(data);
-        console.log(data);
     }
     async function deleteData(id) {
         await axios.delete(`${FILM_API}/${id}`);
