@@ -6,11 +6,12 @@ import {
     Select,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useContext } from "react";
+import { filmContext } from "../../../Contexts/FilmContextProvider";
 
 const Filter = () => {
     const [age, setAge] = React.useState("");
-
+    const { fetchByParams } = useContext(filmContext);
     const handleChange = (event) => {
         setAge(event.target.value);
     };
@@ -28,9 +29,9 @@ const Filter = () => {
         >
             <FormControl sx={{ width: "40%" }}>
                 <Select
+                    onChange={(e) => fetchByParams("type", e.target.value)}
                     defaultValue={"All"}
                     sx={{
-                        // width: "35%",
                         color: "white",
                         border: "2px solid white",
                     }}
@@ -39,18 +40,19 @@ const Filter = () => {
                     }}
                     size="small"
                 >
-                    <MenuItem value={"All"}>All</MenuItem>
-                    <MenuItem value={"Shoes"}>Shoes</MenuItem>
-                    <MenuItem value={"Bandana"}>Bandana</MenuItem>
-                    <MenuItem value={"Hoodie"}>Hoodie</MenuItem>
-                    <MenuItem value={"Sweatshirt"}>Sweatshirt</MenuItem>
-                    <MenuItem value={"Short"}>Short</MenuItem>
-                    <MenuItem value={"Jogger"}>Jogger</MenuItem>
-                    <MenuItem value={"Bomber"}>Bomber</MenuItem>
+                    <MenuItem value={"All"}>все </MenuItem>
+                    <MenuItem value={"Фантастика"}>Фантастика</MenuItem>
+                    <MenuItem value={"Катастрофа"}>Катастрофа</MenuItem>
+                    <MenuItem value={"Боевик"}>Боевик</MenuItem>
+                    <MenuItem value={"Спорт"}>Спорт</MenuItem>
+                    <MenuItem value={"Биография"}>Биография</MenuItem>
+                    <MenuItem value={"Драма"}>Драма</MenuItem>
+                    <MenuItem value={"Комедия"}>комедия</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl sx={{ width: "25%", marginLeft: "10px" }}>
+            <FormControl sx={{ width: "25%", margin: "0px 10px" }}>
                 <Select
+                    onChange={(e) => fetchByParams("_sort", e.target.value)}
                     defaultValue={"All"}
                     sx={{
                         color: "white",
@@ -61,13 +63,14 @@ const Filter = () => {
                     }}
                     size="small"
                 >
-                    <MenuItem value={"All"}>All</MenuItem>
-                    <MenuItem value={"asc"}>Low to High</MenuItem>
-                    <MenuItem value={"desc"}>High to Low</MenuItem>
+                    <MenuItem value={"All"}>все</MenuItem>
+                    <MenuItem value={"asc"}>старые</MenuItem>
+                    <MenuItem value={"desc"}>новые</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl sx={{ width: "25%", marginLeft: "10px" }}>
+            <FormControl sx={{ width: "40%" }}>
                 <Select
+                    onChange={(e) => fetchByParams("categ", e.target.value)}
                     defaultValue={"All"}
                     sx={{
                         color: "white",
@@ -78,9 +81,11 @@ const Filter = () => {
                     }}
                     size="small"
                 >
-                    <MenuItem value={"All"}>All</MenuItem>
-                    <MenuItem value={"asc"}>Low to High</MenuItem>
-                    <MenuItem value={"desc"}>High to Low</MenuItem>
+                    <MenuItem value={"All"}>все</MenuItem>
+                    <MenuItem value={"фильм"}>фильм</MenuItem>
+                    <MenuItem value={"мультфильм"}>мультфильм</MenuItem>
+                    <MenuItem value={"сериал"}>сериал</MenuItem>
+                    <MenuItem value={"аниме"}>аниме</MenuItem>
                 </Select>
             </FormControl>
         </Box>

@@ -4,7 +4,7 @@ import FilmList from "./Films/FilmList";
 import Filter from "./Filters/Filter";
 import SimpleSlider from "./Slider/Slider";
 
-const Main = () => {
+const Main = ({ currentData }) => {
     return (
         <Box
             sx={{
@@ -13,9 +13,7 @@ const Main = () => {
                 padding: "2% 0",
             }}
         >
-            <SimpleSlider />
-            <Filter />
-            <FilmList />
+            <FilmList currentData={currentData} />
         </Box>
     );
 };
