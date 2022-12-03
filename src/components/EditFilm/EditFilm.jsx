@@ -45,7 +45,7 @@ const EditFilm = () => {
                     flexDirection: "column",
                     justifyContent: "center",
                     backgroundImage:
-                        "url(https://i.guim.co.uk/img/media/006e580ef0ee8c46c17b265f2bf66e7f0c61b746/3436_0_8487_5097/master/8487.jpg?width=1020&quality=45&dpr=2&s=none)",
+                        "url(https://img1.akspic.ru/previews/7/4/0/4/3/134047/134047-film_do_sih_por-kinorezhisser-art-illustracia-film-x750.jpg)",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                 }}

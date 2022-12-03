@@ -24,6 +24,8 @@
 }
 
 .text-adminPanel {
+    width: 95%;
+    margin: 0 auto;
     font-size: 30px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;

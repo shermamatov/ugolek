@@ -15,10 +15,16 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
 import { InputAdornment, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContextProvider";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import { filmContext } from "../../Contexts/FilmContextProvider";
 function ResponsiveAppBar() {
+    const {
+        user: { email },
+        handleLogout,
+    } = useAuth();
+    const { data, getOneDate } = React.useContext(filmContext);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [searchState, setSearchState] = React.useState(false);
@@ -42,6 +48,18 @@ function ResponsiveAppBar() {
         setAnchorElUser(null);
     };
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const [search, setSearch] = React.useState(searchParams.get("q") || "");
+
+    React.useEffect(() => {
+        setSearchParams({
+            q: search,
+        });
+    }, [search]);
+
+    let randomId = Math.ceil(parseInt(Math.random() * (data.length - 1) + 1));
+
     return (
         <AppBar
             sx={{
@@ -52,7 +70,7 @@ function ResponsiveAppBar() {
             <Toolbar
                 sx={{
                     display: "flex",
-                    width: "90%",
+                    width: { sm: "90%", xs: "97%" },
                     margin: "auto",
                 }}
                 disableGutters
@@ -70,6 +88,7 @@ function ResponsiveAppBar() {
                         letterSpacing: ".3rem",
                         color: "inherit",
                         textDecoration: "none",
+                        cursor: "pointer",
                     }}
                 >
                     ugolek.tv
@@ -111,19 +130,29 @@ function ResponsiveAppBar() {
                             },
                         }}
                     >
+                        {email && (
+                            <MenuItem
+                                sx={{
+                                    borderBottom: "1px solid lightgray",
+                                }}
+                                onClick={() => {
+                                    handleCloseNavMenu();
+                                    navigate("/add");
+                                }}
+                            >
+                                <Typography textAlign="center">ADD</Typography>
+                            </MenuItem>
+                        )}
+
                         <MenuItem
                             sx={{
                                 borderBottom: "1px solid lightgray",
                             }}
-                            onClick={handleCloseNavMenu}
-                        >
-                            <Typography textAlign="center">ADD</Typography>
-                        </MenuItem>
-                        <MenuItem
-                            sx={{
-                                borderBottom: "1px solid lightgray",
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                navigate(`/watch/${randomId}`);
+                                getOneDate(randomId);
                             }}
-                            onClick={handleCloseNavMenu}
                         >
                             <Typography textAlign="center">RANDOM</Typography>
                         </MenuItem>
@@ -173,14 +202,19 @@ function ResponsiveAppBar() {
                         display: { xs: "none", md: "flex" },
                     }}
                 >
+                    {email && (
+                        <Button
+                            onClick={() => navigate("/add")}
+                            sx={{ my: 2, color: "white", display: "block" }}
+                        >
+                            ADD
+                        </Button>
+                    )}
                     <Button
-                        onClick={() => navigate("/add")}
-                        sx={{ my: 2, color: "white", display: "block" }}
-                    >
-                        ADD
-                    </Button>
-                    <Button
-                        onClick={() => navigate("/")}
+                        onClick={() => {
+                            navigate(`/watch/${randomId}`);
+                            getOneDate(randomId);
+                        }}
                         sx={{ my: 2, color: "white", display: "block" }}
                     >
                         RANDOM
@@ -193,8 +227,31 @@ function ResponsiveAppBar() {
                     </Button>
                 </Box>
                 <Box sx={{ flexGrow: 0 }}>
+                    {email && (
+                        <Tooltip title="Open settings">
+                            <IconButton
+                                onClick={() => navigate("/cart")}
+                                sx={{ p: 0 }}
+                            >
+                                <BookmarksIcon
+                                    sx={{
+                                        color: "white",
+                                        fontSize: { xs: "22px", sm: "28px" },
+                                        marginRight: "10px",
+                                    }}
+                                />
+                            </IconButton>
+                        </Tooltip>
+                    )}
                     <Tooltip title="Open settings">
-                        <IconButton onClick={openSearch} sx={{ p: 0 }}>
+                        <IconButton
+                            onClick={() => {
+                                openSearch();
+                                window.scrollTo(0, 650);
+                                navigate("/");
+                            }}
+                            sx={{ p: 0 }}
+                        >
                             <SearchOutlinedIcon
                                 sx={{
                                     color: "white",
@@ -230,22 +287,37 @@ function ResponsiveAppBar() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        <MenuItem
-                            // key={setting}
-                            onClick={handleCloseUserMenu}
-                        >
-                            <Typography textAlign="center">Logout</Typography>
-                        </MenuItem>
+                        {email ? (
+                            <MenuItem onClick={handleLogout}>
+                                <Typography sx={{ textAlign: "center" }}>
+                                    Logout
+                                </Typography>
+                            </MenuItem>
+                        ) : (
+                            <Link
+                                to="/auth"
+                                style={{
+                                    textDecoration: "none ",
+                                    color: "black",
+                                }}
+                            >
+                                <MenuItem onClick={handleLogout}>
+                                    <Typography sx={{ textAlign: "center" }}>
+                                        login
+                                    </Typography>
+                                </MenuItem>
+                            </Link>
+                        )}
                     </Menu>
                 </Box>
             </Toolbar>
             {searchState && (
                 <Box
                     sx={{
-                        height: "100%",
+                        height: "64px",
                         width: "100%",
                         backgroundColor: "black",
-                        position: "absolute",
+                        position: "fixed",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
@@ -256,6 +328,7 @@ function ResponsiveAppBar() {
                         size="small"
                         variant="outlined"
                         placeholder="search"
+                        onChange={(e) => setSearch(e.target.value)}
                         sx={{
                             backgroundColor: "#fff",
                             width: "60%",

@@ -2,12 +2,16 @@ import { Box, Button, Typography } from "@mui/material";
 import { fontSize } from "@mui/system";
 import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContextProvider";
 import { filmContext } from "../../Contexts/FilmContextProvider";
 
 const WatchFilm = () => {
     const { deleteData, oneData, getOneDate } = useContext(filmContext);
     const { id } = useParams();
     const navigate = useNavigate();
+    const {
+        user: { email },
+    } = useAuth();
     useEffect(() => {
         getOneDate(id);
     }, []);
@@ -127,29 +131,40 @@ const WatchFilm = () => {
                     }}
                 ></iframe>
             </Box>{" "}
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Button
-                    onClick={() => {
-                        deleteData(id);
-                        navigate("/");
-                    }}
+            {email && (
+                <Box
                     sx={{
-                        width: "48%",
-                        boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                        display: "flex",
+                        justifyContent: "space-around",
+                        marginTop: "30px",
                     }}
                 >
-                    delete
-                </Button>
-                <Button
-                    sx={{
-                        width: "48%",
-                        boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
-                    }}
-                    onClick={() => navigate(`/edit/${id}`)}
-                >
-                    edit
-                </Button>
-            </Box>
+                    <Button
+                        onClick={() => {
+                            deleteData(id);
+                            navigate("/");
+                        }}
+                        sx={{
+                            width: "48%",
+                            boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                        }}
+                    >
+                        delete
+                    </Button>
+                    <Button
+                        sx={{
+                            width: "48%",
+                            boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                        }}
+                        onClick={() => {
+                            navigate(`/edit/${id}`);
+                            window.scrollTo(0, 70);
+                        }}
+                    >
+                        edit
+                    </Button>
+                </Box>
+            )}
         </Box>
     );
 };
