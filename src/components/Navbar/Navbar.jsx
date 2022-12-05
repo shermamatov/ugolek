@@ -15,7 +15,8 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
 import { InputAdornment, TextField } from "@mui/material";
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { useNavigate } from "react-router-dom";
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,7 +41,7 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  const navigate = useNavigate();
   return (
     <AppBar
       sx={{
@@ -60,6 +61,7 @@ function ResponsiveAppBar() {
         <Typography
           variant="h6"
           noWrap
+          onClick={() => navigate("/")}
           sx={{
             mr: 2,
             display: { xs: "none", md: "flex" },
@@ -131,7 +133,9 @@ function ResponsiveAppBar() {
               }}
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">ABOUT US</Typography>
+              <Typography onClick={() => navigate("/about")} textAlign="center">
+                ABOUT US
+              </Typography>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
               <Typography textAlign="center">CONTACT US</Typography>
@@ -143,7 +147,7 @@ function ResponsiveAppBar() {
           variant="h5"
           noWrap
           component="a"
-          href=""
+          onClick={() => navigate("/")}
           sx={{
             mr: 2,
             display: { xs: "flex", md: "none" },
@@ -154,6 +158,7 @@ function ResponsiveAppBar() {
             letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
+            cursor: "pointer",
           }}
         >
           ugolek.tv
@@ -164,11 +169,22 @@ function ResponsiveAppBar() {
             display: { xs: "none", md: "flex" },
           }}
         >
-          <Button sx={{ my: 2, color: "white", display: "block" }}>ADD</Button>
-          <Button sx={{ my: 2, color: "white", display: "block" }}>
+          <Button
+            onClick={() => navigate("/add")}
+            sx={{ my: 2, color: "white", display: "block" }}
+          >
+            ADD
+          </Button>
+          <Button
+            onClick={() => navigate("/")}
+            sx={{ my: 2, color: "white", display: "block" }}
+          >
             RANDOM
           </Button>
-          <Button sx={{ my: 2, color: "white", display: "block" }}>
+          <Button
+            onClick={() => navigate("/about")}
+            sx={{ my: 2, color: "white", display: "block" }}
+          >
             ABOUT US
           </Button>
           <Button sx={{ my: 2, color: "white", display: "block" }}>
@@ -213,11 +229,12 @@ function ResponsiveAppBar() {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
+            <MenuItem
+              // key={setting}
+              onClick={handleCloseUserMenu}
+            >
+              <Typography textAlign="center">Logout</Typography>
+            </MenuItem>
           </Menu>
         </Box>
       </Toolbar>

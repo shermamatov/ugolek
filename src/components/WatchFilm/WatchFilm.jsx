@@ -107,7 +107,12 @@ const WatchFilm = () => {
             <Box
                 sx={{
                     width: "100%",
-                    height: { lg: "600px" },
+                    height: {
+                        lg: "500px",
+                        md: "400px",
+                        sm: "300px",
+                        xs: "200px",
+                    },
                 }}
             >
                 <iframe
@@ -128,12 +133,18 @@ const WatchFilm = () => {
                         deleteData(id);
                         navigate("/");
                     }}
-                    sx={{ width: "48%" }}
+                    sx={{
+                        width: "48%",
+                        boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                    }}
                 >
                     delete
                 </Button>
                 <Button
-                    sx={{ width: "48%" }}
+                    sx={{
+                        width: "48%",
+                        boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                    }}
                     onClick={() => navigate(`/edit/${id}`)}
                 >
                     edit
