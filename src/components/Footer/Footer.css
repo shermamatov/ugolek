@@ -1,176 +1,177 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    overflow: scroll;
+  overflow: scroll;
 }
 .footer-div {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
 }
 
 .footer-div1 {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 80%;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+  margin-top: 50px;
 }
 
 .footer-text1 {
-    display: flex;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-div2 {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    width: 80%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  width: 80%;
 }
 
 .footer-text2 {
-    display: flex;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
-    color: #c2c2c2;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #c2c2c2;
+  width: 100%;
 }
 
 .footer-div3 {
-    display: flex;
-    width: 40%;
-    font-size: 14px;
-    justify-content: space-between;
-    margin: auto;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  width: 40%;
+  font-size: 14px;
+  justify-content: space-between;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .footer-text3 {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
 }
 
 .footer-div4 {
-    display: flex;
-    width: 60%;
-    /* font-size: 20px; */
-    justify-content: space-between;
-    margin: auto;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  width: 60%;
+  /* font-size: 20px; */
+  justify-content: space-between;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .footer-text4 {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    color: #c2c2c2;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #c2c2c2;
 }
 
 .footer-div5 {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .footer-text5 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
 }
 
 .footer-social {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    margin: auto;
-    margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
 }
 
 .footer-social-icon {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 /* Адаптивка */
 
 @media all and (max-width: 1024px) {
-    .footer-div3 {
-        width: 80%;
-    }
+  .footer-div3 {
+    width: 80%;
+  }
 }
 
 @media all and (max-width: 900px) {
-    .footer-div4 {
-        width: 80%;
-    }
+  .footer-div4 {
+    width: 80%;
+  }
 }
 
 @media all and (max-width: 768px) {
-    .footer-div1 {
-        font-size: 12px;
-    }
-    .footer-text2 {
-        font-size: 12px;
-    }
-    .footer-text3 {
-        font-size: 12px;
-    }
-    .footer-div4 {
-        /* width: 44%; */
-    }
-    .footer-text4 {
-        font-size: 12px;
-    }
-    .footer-div5 {
-        font-size: 14px;
-    }
+  .footer-div1 {
+    font-size: 12px;
+  }
+  .footer-text2 {
+    font-size: 12px;
+  }
+  .footer-text3 {
+    font-size: 12px;
+  }
+  .footer-div4 {
+    /* width: 44%; */
+  }
+  .footer-text4 {
+    font-size: 12px;
+  }
+  .footer-div5 {
+    font-size: 14px;
+  }
 }
 
 @media all and (max-width: 718px) {
-    .footer-div4 {
-        width: 80%;
-    }
+  .footer-div4 {
+    width: 80%;
+  }
 }
 
 @media all and (max-width: 500px) {
-    .footer-div1 {
-        width: 90%;
-        margin: auto;
-        margin-top: 40px;
-    }
-    .footer-text1 {
-        font-size: 11px;
-        text-align: center;
-    }
-    .footer-text2 {
-        font-size: 12px;
-    }
-    .footer-div3 {
-        /* width: 50%; */
-        flex-direction: column;
-    }
-    .footer-text3 {
-        font-size: 12px;
-    }
-    .footer-div4 {
-        width: 44%;
-        display: none;
-    }
-    .footer-text4 {
-        font-size: 12px;
-    }
-    .footer-text5 {
-        font-size: 17px;
-    }
+  .footer-div1 {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .footer-text1 {
+    font-size: 11px;
+    text-align: center;
+  }
+  .footer-text2 {
+    font-size: 12px;
+  }
+  .footer-div3 {
+    /* width: 50%; */
+    flex-direction: column;
+  }
+  .footer-text3 {
+    font-size: 12px;
+  }
+  .footer-div4 {
+    width: 44%;
+    display: none;
+  }
+  .footer-text4 {
+    font-size: 12px;
+  }
+  .footer-text5 {
+    font-size: 17px;
+  }
 }

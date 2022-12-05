@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { filmContext } from "../../../Contexts/FilmContextProvider";
 import FilmCard from "./FilmCard";
 
-const FilmList = () => {
+const FilmList = ({ currentData }) => {
   const { data, getData } = useContext(filmContext);
   useEffect(() => {
     getData();
@@ -24,9 +24,11 @@ const FilmList = () => {
         gridGap: "20px",
       }}
     >
-      {data.map((item) => (
-        <FilmCard key={item.id} item={item} />
-      ))}
+      {data ? (
+        currentData().map((item) => <FilmCard key={item.id} item={item} />)
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };
