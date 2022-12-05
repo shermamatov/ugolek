@@ -29,6 +29,7 @@ const FilmContextProvider = ({ children }) => {
     async function getOneDate(id) {
         let result = await axios.get(`${FILM_API}/${id}`);
         setOneData(result.data);
+        getData();
     }
     async function editData(id, data) {
         await axios.patch(`${FILM_API}/${id}`, data);

@@ -19,6 +19,7 @@ const AddFilm = () => {
             disc,
             img,
             film,
+            categ: "фильм",
         };
         addData(obj);
     }
