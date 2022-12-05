@@ -1,12 +1,18 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { fontSize } from "@mui/system";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContextProvider";
 import { filmContext } from "../../Contexts/FilmContextProvider";
+import Comment from "./Comment";
 
 const WatchFilm = () => {
-    const { deleteData, oneData, getOneDate } = useContext(filmContext);
+    const [userName, setUserName] = useState("");
+    const [comment, setComment] = useState("");
+    const { deleteData, oneData, getOneDate, editData } =
+        useContext(filmContext);
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
+    const [date, setDate] = useState(new Date().toLocaleDateString());
     const { id } = useParams();
     const navigate = useNavigate();
     const {
@@ -14,9 +20,22 @@ const WatchFilm = () => {
     } = useAuth();
     useEffect(() => {
         getOneDate(id);
-    }, []);
-    function test() {
-        console.log(oneData);
+    }, [oneData]);
+    function handleData() {
+        let obj = {
+            name: oneData.name,
+            type: oneData.type,
+            year: oneData.year,
+            disc: oneData.disc,
+            img: oneData.img,
+            film: oneData.film,
+            comment: [
+                ...oneData.comment,
+                { userName, comment, time, date, id: new Date() },
+            ],
+        };
+        editData(id, obj);
+        getOneDate(id);
     }
     return (
         <Box sx={{ width: "80%", margin: "auto", padding: "40px 0px" }}>
@@ -130,13 +149,63 @@ const WatchFilm = () => {
                         height: "100%",
                     }}
                 ></iframe>
-            </Box>{" "}
+            </Box>
+            <Box
+                sx={{
+                    marginTop: "50px",
+                    // display: "flex",
+                    marginBottom: "100px",
+                }}
+            >
+                <input
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="type"
+                    style={{ width: "100%", height: "30px", border: "none" }}
+                    maxLength="10"
+                />
+                {/* <input
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder="year"
+                    style={{
+                        width: "100%",
+                        height: "100px",
+                        border: "none",
+                    }}
+                /> */}
+                <textarea
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder="year"
+                    style={{
+                        width: "100%",
+                        height: "100px",
+                        border: "none",
+                        marginTop: "10px",
+                    }}
+                ></textarea>
+                <button
+                    onClick={() => {
+                        handleData();
+                    }}
+                    style={{ width: "100%", height: "30px" }}
+                >
+                    add comment
+                </button>
+            </Box>
+            {oneData.comment ? (
+                oneData.comment.map((item) => (
+                    <Comment key={item.id} item={item} />
+                ))
+            ) : (
+                <></>
+            )}
+            {/* <Comment /> */}
             {email && (
                 <Box
                     sx={{
                         display: "flex",
                         justifyContent: "space-around",
-                        marginTop: "30px",
+                        marginBottom: "30px",
+                        mt: "50px",
                     }}
                 >
                     <Button

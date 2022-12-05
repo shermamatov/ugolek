@@ -164,11 +164,6 @@ function ResponsiveAppBar() {
                         >
                             <Typography textAlign="center">ABOUT US</Typography>
                         </MenuItem>
-                        <MenuItem onClick={handleCloseNavMenu}>
-                            <Typography textAlign="center">
-                                CONTACT US
-                            </Typography>
-                        </MenuItem>
                     </Menu>
                 </Box>
                 <img
@@ -221,9 +216,6 @@ function ResponsiveAppBar() {
                     </Button>
                     <Button sx={{ my: 2, color: "white", display: "block" }}>
                         ABOUT US
-                    </Button>
-                    <Button sx={{ my: 2, color: "white", display: "block" }}>
-                        CONTACT US
                     </Button>
                 </Box>
                 <Box sx={{ flexGrow: 0 }}>
