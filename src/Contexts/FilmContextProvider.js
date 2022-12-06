@@ -6,6 +6,7 @@ const FilmContextProvider = ({ children }) => {
     const FILM_API = "http://localhost:8000/product";
     const [data, setData] = useState([]);
     const [oneData, setOneData] = useState({});
+    const [searchState, setSearchState] = React.useState(false);
 
     // async function getRandomData() {
     //     let { data } = await axios.get(`${FILM_API}`);
@@ -63,6 +64,8 @@ const FilmContextProvider = ({ children }) => {
         fetchByParams,
         FILM_API,
         editData,
+        searchState,
+        setSearchState,
     };
     return (
         <filmContext.Provider value={values}>{children}</filmContext.Provider>

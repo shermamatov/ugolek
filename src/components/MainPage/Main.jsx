@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
+import { useContext } from "react";
+import { filmContext } from "../../Contexts/FilmContextProvider";
 import FilmList from "./Films/FilmList";
 import Filter from "./Filters/Filter";
 import SimpleSlider from "./Slider/Slider";

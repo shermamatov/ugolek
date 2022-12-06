@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Avatar, Button, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 
@@ -27,6 +27,9 @@ const Comment = ({ item }) => {
                     alt=""
                 />
             </Box>
+            {/* <IconButton sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            </IconButton> */}
             <Box
                 sx={{
                     width: "90%",
@@ -38,7 +41,7 @@ const Comment = ({ item }) => {
                     sx={{
                         width: "100%",
                         height: "20%",
-                        fontSize: "20px",
+                        fontSize: { xs: "12px", sm: "16px", md: "18px" },
                         display: "flex",
                         justifyContent: "space-between",
                         marginBottom: "10px",
@@ -46,12 +49,19 @@ const Comment = ({ item }) => {
                 >
                     <h3>{item.userName}</h3>
                 </Box>
-                <Box sx={{ width: "100%", wordWrap: "break-word" }}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        wordWrap: "break-word",
+                        fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                        opacity: "0.8",
+                    }}
+                >
                     {item.comment}
                 </Box>
                 <Box
                     sx={{
-                        fontSize: "16px",
+                        fontSize: { xs: "10px", sm: "12px", md: "14px" },
                         display: "flex",
                         alignItems: "end",
                         color: "gray",

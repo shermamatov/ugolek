@@ -14,20 +14,25 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
-import { InputAdornment, TextField } from "@mui/material";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+    Link,
+    useNavigate,
+    useParams,
+    useSearchParams,
+} from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContextProvider";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { filmContext } from "../../Contexts/FilmContextProvider";
+import { TextField } from "@mui/material";
 function ResponsiveAppBar() {
     const {
         user: { email },
         handleLogout,
     } = useAuth();
-    const { data, getOneDate } = React.useContext(filmContext);
+    const { data, getOneDate, searchState, setSearchState } =
+        React.useContext(filmContext);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [searchState, setSearchState] = React.useState(false);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -47,6 +52,7 @@ function ResponsiveAppBar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const { id } = useParams();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
