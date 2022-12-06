@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Slider from "react-slick";
@@ -9,6 +10,7 @@ import { filmContext } from "../Contexts/FilmContextProvider";
 
 const MainPage = () => {
     const { data, getData } = useContext(filmContext);
+    const { setSearchState } = useContext(filmContext);
 
     useEffect(() => {
         getData();
@@ -30,7 +32,7 @@ const MainPage = () => {
         setPage(1);
     }, [searchParams]);
     return (
-        <div>
+        <div onClick={() => setSearchState(false)}>
             <SimpleSlider />
             <Filter />
             <Main currentData={currentData} />

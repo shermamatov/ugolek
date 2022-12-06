@@ -1,0 +1,14 @@
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.div1 {
+    margin: auto;
+    width: 80%;
+}
+
+@media all and (max-width: 550px) {
+    .box {
+        background-image: url("https://st.peopletalk.ru/wp-content/uploads/2021/06/1_xzrsvurs-6zqqbfevged2w.gif");
+    }
+}

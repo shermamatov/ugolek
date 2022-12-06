@@ -4,6 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 import { filmContext } from "../../../Contexts/FilmContextProvider";
+import "./Pagination.css";
 
 const ProductSortPagination = ({ page, setPage, count }) => {
     const [sort, setSort] = React.useState("");
@@ -26,6 +27,7 @@ const ProductSortPagination = ({ page, setPage, count }) => {
     const handleChange = (e, p) => {
         setPage(p);
     };
+
     return (
         <div>
             <Box
@@ -38,61 +40,26 @@ const ProductSortPagination = ({ page, setPage, count }) => {
                         lg: "flex",
                         xl: "flex",
                     },
-                    justifyContent: "space-between",
+                    justifyContent: "center",
                     alignItems: "center",
                     paddingBottom: "3%",
                 }}
             >
-                <Box
+                <Stack
+                    spacing={2}
                     sx={{
-                        width: {
-                            xs: "10%",
-                            sm: "10%",
-                            md: "30%",
-                            lg: "30%",
-                            xl: "30%",
-                        },
-                        height: "30px",
-                        margin: {
-                            xs: "0%",
-                            sm: "3%",
-                            md: "0",
-                            lg: "0",
-                            xl: "0",
-                        },
-                    }}
-                ></Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        margin: {
-                            xs: "9%",
-                            sm: "10%",
-                            md: "0",
-                            lg: "0%",
-                            xl: "0",
-                        },
+                        button: { color: "#ffffff", border: "1px solid white" },
                     }}
                 >
-                    <Typography sx={{ fontWeight: "800" }}>
-                        {productCount.length} items
-                    </Typography>
-                    <Divider
-                        sx={{ marginLeft: "12px" }}
-                        orientation="vertical"
-                        flexItem
-                    ></Divider>
-                    <Stack spacing={2} sx={{ marginRight: 5 }}>
-                        <Pagination
-                            page={page}
-                            onChange={handleChange}
-                            count={count}
-                            color="warning"
-                            size="small"
-                        />
-                    </Stack>
-                </Box>
+                    <Pagination
+                        color="primary"
+                        page={page}
+                        count={count}
+                        onChange={handleChange}
+                        variant="outlined"
+                        shape="rounded"
+                    />
+                </Stack>
             </Box>
         </div>
     );

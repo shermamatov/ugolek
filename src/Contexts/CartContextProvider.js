@@ -8,7 +8,6 @@ const CartContextProvider = ({ children }) => {
         let data = JSON.parse(localStorage.getItem("film-data")) || [];
         data.push(film);
         localStorage.setItem("film-data", JSON.stringify(data));
-        console.log(data);
     };
     const getFilmToCart = () => {
         if (!localStorage.getItem("film-data")) {

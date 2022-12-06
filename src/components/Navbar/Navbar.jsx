@@ -14,20 +14,25 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
-import { InputAdornment, TextField } from "@mui/material";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+    Link,
+    useNavigate,
+    useParams,
+    useSearchParams,
+} from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContextProvider";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { filmContext } from "../../Contexts/FilmContextProvider";
+import { TextField } from "@mui/material";
 function ResponsiveAppBar() {
     const {
         user: { email },
         handleLogout,
     } = useAuth();
-    const { data, getOneDate } = React.useContext(filmContext);
+    const { data, getOneDate, searchState, setSearchState } =
+        React.useContext(filmContext);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [searchState, setSearchState] = React.useState(false);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -47,6 +52,7 @@ function ResponsiveAppBar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const { id } = useParams();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -59,6 +65,7 @@ function ResponsiveAppBar() {
     }, [search]);
 
     let randomId = Math.ceil(parseInt(Math.random() * (data.length - 1) + 1));
+    const ADMIN = "admin@gmail.com";
 
     return (
         <AppBar
@@ -130,7 +137,7 @@ function ResponsiveAppBar() {
                             },
                         }}
                     >
-                        {email && (
+                        {email === ADMIN && (
                             <MenuItem
                                 sx={{
                                     borderBottom: "1px solid lightgray",
@@ -160,7 +167,10 @@ function ResponsiveAppBar() {
                             sx={{
                                 borderBottom: "1px solid lightgray",
                             }}
-                            onClick={handleCloseNavMenu}
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                navigate("/about");
+                            }}
                         >
                             <Typography textAlign="center">ABOUT US</Typography>
                         </MenuItem>
@@ -197,7 +207,7 @@ function ResponsiveAppBar() {
                         display: { xs: "none", md: "flex" },
                     }}
                 >
-                    {email && (
+                    {email === ADMIN && (
                         <Button
                             onClick={() => navigate("/add")}
                             sx={{ my: 2, color: "white", display: "block" }}
@@ -214,7 +224,12 @@ function ResponsiveAppBar() {
                     >
                         RANDOM
                     </Button>
-                    <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    <Button
+                        onClick={() => {
+                            navigate("/about");
+                        }}
+                        sx={{ my: 2, color: "white", display: "block" }}
+                    >
                         ABOUT US
                     </Button>
                 </Box>

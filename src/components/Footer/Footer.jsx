@@ -77,7 +77,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer-div5">
-        <h2 className="footer-text5">ugol.tv</h2>
+        <h2 className="footer-text5">ugolek.tv</h2>
       </div>
     </div>
   );

@@ -5,9 +5,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContextProvider";
 import { filmContext } from "../../Contexts/FilmContextProvider";
 import Comment from "./Comment";
+import { createTheme } from "@mui/material/styles";
 
 const WatchFilm = () => {
-    const [userName, setUserName] = useState("");
     const [comment, setComment] = useState("");
     const { deleteData, oneData, getOneDate, editData } =
         useContext(filmContext);
@@ -22,6 +22,10 @@ const WatchFilm = () => {
         getOneDate(id);
     }, [oneData]);
     function handleData() {
+        if (!comment) {
+            alert("заполните все поля");
+            return;
+        }
         let obj = {
             name: oneData.name,
             type: oneData.type,
@@ -31,12 +35,14 @@ const WatchFilm = () => {
             film: oneData.film,
             comment: [
                 ...oneData.comment,
-                { userName, comment, time, date, id: new Date() },
+                { userName: email, comment, time, date, id: new Date() },
             ],
         };
         editData(id, obj);
         getOneDate(id);
+        setComment("");
     }
+    const ADMIN = "admin@gmail.com";
     return (
         <Box sx={{ width: "80%", margin: "auto", padding: "40px 0px" }}>
             <Box
@@ -53,12 +59,7 @@ const WatchFilm = () => {
                         margin: { md: "0", xs: "auto" },
                     }}
                 >
-                    <img
-                        // src="https://ixbt.online/live/images/original/16/95/46/2022/11/19/ecbe80840c.jpg"
-                        src={oneData.img}
-                        width="100%"
-                        alt=""
-                    />
+                    <img src={oneData.img} width="100%" alt="" />
                 </Box>
                 <Box
                     sx={{
@@ -150,56 +151,61 @@ const WatchFilm = () => {
                     }}
                 ></iframe>
             </Box>
-            <Box
-                sx={{
-                    marginTop: "50px",
-                    // display: "flex",
-                    marginBottom: "100px",
-                }}
-            >
-                <input
-                    onChange={(e) => setUserName(e.target.value)}
-                    placeholder="type"
-                    style={{ width: "100%", height: "30px", border: "none" }}
-                    maxLength="10"
-                />
-                {/* <input
-                    onChange={(e) => setComment(e.target.value)}
-                    placeholder="year"
-                    style={{
-                        width: "100%",
-                        height: "100px",
-                        border: "none",
-                    }}
-                /> */}
-                <textarea
-                    onChange={(e) => setComment(e.target.value)}
-                    placeholder="year"
-                    style={{
-                        width: "100%",
-                        height: "100px",
-                        border: "none",
-                        marginTop: "10px",
-                    }}
-                ></textarea>
-                <button
-                    onClick={() => {
-                        handleData();
-                    }}
-                    style={{ width: "100%", height: "30px" }}
-                >
-                    add comment
-                </button>
-            </Box>
-            {oneData.comment ? (
-                oneData.comment.map((item) => (
-                    <Comment key={item.id} item={item} />
-                ))
-            ) : (
-                <></>
-            )}
-            {/* <Comment /> */}
             {email && (
+                <Box
+                    sx={{
+                        marginTop: "50px",
+                        marginBottom: "100px",
+                        borderTop: "2px solid gray",
+                    }}
+                >
+                    {" "}
+                    <Typography sx={{ fontSize: { xs: "30px", sm: "40px" } }}>
+                        коментарии
+                    </Typography>
+                    <textarea
+                        onChange={(e) => setComment(e.target.value)}
+                        placeholder="comment"
+                        value={comment}
+                        style={{
+                            width: "100%",
+                            height: "100px",
+                            border: "1px solid gray",
+                            backgroundColor: "transparent",
+                            padding: "10px",
+                            marginTop: "10px",
+                            fontSize: { xs: "16px", sm: "20px" },
+                            color: "white",
+                        }}
+                    ></textarea>
+                    <Button
+                        onClick={() => {
+                            handleData();
+                        }}
+                        sx={{
+                            width: "100%",
+                            height: "40px",
+                            backgroundColor: "green",
+                            color: "white",
+                            transition: "500s",
+                        }}
+                    >
+                        add comment
+                    </Button>
+                </Box>
+            )}
+
+            <Box>
+                {oneData.comment ? (
+                    oneData.comment.map((item) => (
+                        <Comment key={item.id} item={item} />
+                    ))
+                ) : (
+                    <></>
+                )}
+            </Box>
+
+            {email === ADMIN && (
                 <Box
                     sx={{
                         display: "flex",
@@ -215,7 +221,10 @@ const WatchFilm = () => {
                         }}
                         sx={{
                             width: "48%",
-                            boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                            backgroundColor: "red",
+                            color: "white",
+                            transition: "500s",
+                            opacity: "0.9",
                         }}
                     >
                         delete
@@ -223,7 +232,10 @@ const WatchFilm = () => {
                     <Button
                         sx={{
                             width: "48%",
-                            boxShadow: "5px 5px 30px -5px rgba(0, 0, 0, 0.6)",
+                            backgroundColor: "blue",
+                            color: "white",
+                            transition: "500s",
+                            opacity: "0.9",
                         }}
                         onClick={() => {
                             navigate(`/edit/${id}`);
