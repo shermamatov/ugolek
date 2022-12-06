@@ -1,5 +1,6 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { filmContext } from "../../Contexts/FilmContextProvider";
 import "./AddFilm.css";
 
@@ -24,6 +25,7 @@ const AddFilm = () => {
         };
         addData(obj);
     }
+    const navigate = useNavigate();
     return (
         <div>
             <Box
@@ -87,7 +89,13 @@ const AddFilm = () => {
                         placeholder="ФИЛЬМ"
                     />
 
-                    <button className="button-add" onClick={handleData}>
+                    <button
+                        className="button-add"
+                        onClick={() => {
+                            handleData();
+                            navigate("/");
+                        }}
+                    >
                         ДОБАВИТЬ ФИЛЬМ
                     </button>
                 </Box>

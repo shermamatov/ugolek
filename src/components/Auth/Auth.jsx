@@ -66,32 +66,58 @@ export default function SignIn() {
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
+                    className="box"
                     sx={{
-                        marginTop: 8,
+                        // marginTop: "10px",
+                        // margin: "auto",
                         display: "flex",
+                        justifyContent: "center",
                         flexDirection: "column",
                         alignItems: "center",
+                        width: "100%",
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                        <LockOutlinedIcon />
+                    <Avatar
+                        className="avatar"
+                        sx={{
+                            m: 1,
+                            bgcolor: "secondary.main",
+                            backgroundColor: "white",
+                        }}
+                    >
+                        <LockOutlinedIcon sx={{ color: "black" }} />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
+                    <Typography
+                        component="h1"
+                        variant="h5"
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            fontSize: "30px",
+                        }}
+                    >
+                        <strong>вход на ugolek.tv</strong>
                     </Typography>
                     <Box
                         component="form"
                         onSubmit={handleSubmit}
                         noValidate
-                        sx={{ mt: 1 }}
+                        sx={{
+                            mt: 1,
+                            display: "flex",
+                            justifyContent: "center",
+                            flexDirection: "column",
+                        }}
                     >
-                        <TextField
+                        <input
                             className="input-email"
                             required
                             fullWidth
                             id="email"
                             name="email"
                             autoComplete="email"
+                            placeholder="email"
+                            //   color="white"
                             // autoFocus
                             // ===========
                             helperText={emailError}
@@ -99,13 +125,8 @@ export default function SignIn() {
                             onChange={(e) => {
                                 setEmail(e.target.value);
                             }}
-                            sx={{
-                                borderRadius: "0",
-                                color: "white",
-                                backgroundColor: "white",
-                            }}
                         />
-                        <TextField
+                        <input
                             className="input-password"
                             required
                             fullWidth
@@ -113,6 +134,7 @@ export default function SignIn() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            placeholder="password"
                             // ===============
                             helperText={passwordError}
                             value={password}
@@ -120,7 +142,8 @@ export default function SignIn() {
                                 setPassword(e.target.value);
                             }}
                             sx={{
-                                borderRadius: "0",
+                                borderRadius: "6px",
+                                // borderRadius: "0",
                                 color: "white",
                                 backgroundColor: "white",
                             }}
@@ -148,7 +171,7 @@ export default function SignIn() {
                                 sx={{ mt: 3, mb: 2, fontWeight: 600 }}
                                 onClick={handleSignup}
                             >
-                                Register
+                                register
                             </Button>
                         )}
                         <Grid

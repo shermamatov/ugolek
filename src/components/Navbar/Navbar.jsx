@@ -65,6 +65,7 @@ function ResponsiveAppBar() {
     }, [search]);
 
     let randomId = Math.ceil(parseInt(Math.random() * (data.length - 1) + 1));
+    const ADMIN = "admin@gmail.com";
 
     return (
         <AppBar
@@ -136,7 +137,7 @@ function ResponsiveAppBar() {
                             },
                         }}
                     >
-                        {email && (
+                        {email === ADMIN && (
                             <MenuItem
                                 sx={{
                                     borderBottom: "1px solid lightgray",
@@ -166,7 +167,10 @@ function ResponsiveAppBar() {
                             sx={{
                                 borderBottom: "1px solid lightgray",
                             }}
-                            onClick={handleCloseNavMenu}
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                navigate("/about");
+                            }}
                         >
                             <Typography textAlign="center">ABOUT US</Typography>
                         </MenuItem>
@@ -203,7 +207,7 @@ function ResponsiveAppBar() {
                         display: { xs: "none", md: "flex" },
                     }}
                 >
-                    {email && (
+                    {email === ADMIN && (
                         <Button
                             onClick={() => navigate("/add")}
                             sx={{ my: 2, color: "white", display: "block" }}
@@ -220,7 +224,12 @@ function ResponsiveAppBar() {
                     >
                         RANDOM
                     </Button>
-                    <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    <Button
+                        onClick={() => {
+                            navigate("/about");
+                        }}
+                        sx={{ my: 2, color: "white", display: "block" }}
+                    >
                         ABOUT US
                     </Button>
                 </Box>
