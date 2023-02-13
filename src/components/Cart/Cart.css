@@ -1,0 +1,15 @@
+.nones {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.none-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    font-family: sans-serif;
+    color: gray;
+}

@@ -2,24 +2,33 @@ import React, { createContext, useState } from "react";
 export const cartContext = createContext();
 const CartContextProvider = ({ children }) => {
     const [cartData, setCartData] = useState(
-        JSON.parse(localStorage.getItem("film-data"))
+        JSON.parse(localStorage.getItem("wish"))
     );
     const addFilmToCart = (film) => {
-        let data = JSON.parse(localStorage.getItem("film-data")) || [];
-        data.push(film);
-        localStorage.setItem("film-data", JSON.stringify(data));
-    };
-    const getFilmToCart = () => {
-        if (!localStorage.getItem("film-data")) {
-            localStorage.setItem("film-data", "[]");
+        let wish = JSON.parse(localStorage.getItem("wish"));
+        if (!wish) {
+            wish = [];
         }
-        let cart = JSON.parse(localStorage.getItem("film-data"));
-        setCartData(cart);
+        let somer = wish.some((elem) => elem.id == film.id);
+        if (!somer) {
+            wish.push(film);
+        } else {
+            wish = wish.filter((elem) => elem.id !== film.id);
+        }
+        localStorage.setItem("wish", JSON.stringify(wish));
+        setCartData(wish);
     };
+    function getFilmToCart() {
+        if (!localStorage.getItem("wish")) {
+            localStorage.setItem("wish", "[]");
+        }
+        let cart = JSON.parse(localStorage.getItem("wish"));
+        setCartData(cart);
+    }
     function deleteFilmToCart(id) {
-        let cart = JSON.parse(localStorage.getItem("film-data"));
+        let cart = JSON.parse(localStorage.getItem("wish"));
         cart = cart.filter((elem) => elem.id !== id);
-        localStorage.setItem("film-data", JSON.stringify(cart));
+        localStorage.setItem("wish", JSON.stringify(cart));
         console.log(cartData);
         getFilmToCart();
     }

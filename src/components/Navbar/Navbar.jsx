@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
         user: { email },
         handleLogout,
     } = useAuth();
-    const { data, getOneDate, searchState, setSearchState } =
+    const { data, getOneDate, searchState, setSearchState, searchData } =
         React.useContext(filmContext);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -151,7 +151,7 @@ function ResponsiveAppBar() {
                             </MenuItem>
                         )}
 
-                        <MenuItem
+                        {/* <MenuItem
                             sx={{
                                 borderBottom: "1px solid lightgray",
                             }}
@@ -162,7 +162,7 @@ function ResponsiveAppBar() {
                             }}
                         >
                             <Typography textAlign="center">RANDOM</Typography>
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem
                             sx={{
                                 borderBottom: "1px solid lightgray",
@@ -215,7 +215,7 @@ function ResponsiveAppBar() {
                             ADD
                         </Button>
                     )}
-                    <Button
+                    {/* <Button
                         onClick={() => {
                             navigate(`/watch/${randomId}`);
                             getOneDate(randomId);
@@ -223,7 +223,7 @@ function ResponsiveAppBar() {
                         sx={{ my: 2, color: "white", display: "block" }}
                     >
                         RANDOM
-                    </Button>
+                    </Button> */}
                     <Button
                         onClick={() => {
                             navigate("/about");
@@ -335,7 +335,7 @@ function ResponsiveAppBar() {
                         size="small"
                         variant="outlined"
                         placeholder="search"
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={(e) => searchData(e.target.value)}
                         sx={{
                             backgroundColor: "#fff",
                             width: "60%",

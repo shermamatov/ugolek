@@ -27,9 +27,6 @@ const Comment = ({ item }) => {
                     alt=""
                 />
             </Box>
-            {/* <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton> */}
             <Box
                 sx={{
                     width: "90%",

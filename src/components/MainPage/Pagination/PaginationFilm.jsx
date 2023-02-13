@@ -34,8 +34,8 @@ const ProductSortPagination = ({ page, setPage, count }) => {
                 sx={{
                     width: "100%",
                     display: {
-                        xs: "block",
-                        sm: "block",
+                        xs: "flex",
+                        sm: "flex",
                         md: "flex",
                         lg: "flex",
                         xl: "flex",

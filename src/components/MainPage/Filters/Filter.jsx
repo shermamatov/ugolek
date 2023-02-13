@@ -12,10 +12,8 @@ import { filmContext } from "../../../Contexts/FilmContextProvider";
 
 const Filter = () => {
     const [age, setAge] = React.useState("");
-    const { fetchByParams } = useContext(filmContext);
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    const { testData, searchData, testSort } = useContext(filmContext);
+    const handleChange = () => {};
     return (
         <Box sx={{ marginTop: "40px" }}>
             <Typography
@@ -41,7 +39,7 @@ const Filter = () => {
             >
                 <FormControl sx={{ width: "40%" }}>
                     <Select
-                        onChange={(e) => fetchByParams("type", e.target.value)}
+                        onChange={(e) => testData("type", e.target.value)}
                         defaultValue={"All"}
                         sx={{
                             color: "white",
@@ -66,7 +64,7 @@ const Filter = () => {
                     sx={{ width: "25%", margin: "0px 10px", border: "none" }}
                 >
                     <Select
-                        onChange={(e) => fetchByParams("_sort", e.target.value)}
+                        onChange={(e) => testSort(e.target.value)}
                         defaultValue={"All"}
                         sx={{
                             color: "white",
@@ -83,7 +81,7 @@ const Filter = () => {
                 </FormControl>
                 <FormControl sx={{ width: "40%" }}>
                     <Select
-                        onChange={(e) => fetchByParams("categ", e.target.value)}
+                        onChange={(e) => testData("categ", e.target.value)}
                         defaultValue={"All"}
                         sx={{
                             color: "white",

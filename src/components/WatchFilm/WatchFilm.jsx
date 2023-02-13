@@ -20,7 +20,7 @@ const WatchFilm = () => {
     } = useAuth();
     useEffect(() => {
         getOneDate(id);
-    }, [oneData]);
+    }, []);
     function handleData() {
         if (!comment) {
             alert("заполните все поля");
@@ -180,7 +180,7 @@ const WatchFilm = () => {
                     ></textarea>
                     <Button
                         onClick={() => {
-                            handleData();
+                            // handleData();
                         }}
                         sx={{
                             width: "100%",

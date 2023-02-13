@@ -2,9 +2,6 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import "./Auth.css";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -117,9 +114,6 @@ export default function SignIn() {
                             name="email"
                             autoComplete="email"
                             placeholder="email"
-                            //   color="white"
-                            // autoFocus
-                            // ===========
                             helperText={emailError}
                             value={email}
                             onChange={(e) => {
@@ -135,7 +129,6 @@ export default function SignIn() {
                             id="password"
                             autoComplete="current-password"
                             placeholder="password"
-                            // ===============
                             helperText={passwordError}
                             value={password}
                             onChange={(e) => {
@@ -143,7 +136,6 @@ export default function SignIn() {
                             }}
                             sx={{
                                 borderRadius: "6px",
-                                // borderRadius: "0",
                                 color: "white",
                                 backgroundColor: "white",
                             }}
@@ -157,7 +149,7 @@ export default function SignIn() {
                                 sx={{ mt: 3, mb: 2, fontWeight: 600 }}
                                 onClick={() => {
                                     handleLogin();
-                                    test();
+                                    // navigate("/");
                                 }}
                             >
                                 Sign in
@@ -169,7 +161,10 @@ export default function SignIn() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2, fontWeight: 600 }}
-                                onClick={handleSignup}
+                                onClick={() => {
+                                    handleSignup();
+                                    // navigate("/");
+                                }}
                             >
                                 register
                             </Button>
