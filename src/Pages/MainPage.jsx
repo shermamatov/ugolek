@@ -25,12 +25,7 @@ const MainPage = () => {
         const end = begin + itemsPerPage;
         return data.slice(begin, end);
     }
-    const [searchParams, setSearchParams] = useSearchParams();
 
-    useEffect(() => {
-        getData();
-        setPage(1);
-    }, [searchParams]);
     return (
         <div onClick={() => setSearchState(false)}>
             <SimpleSlider />

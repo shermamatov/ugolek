@@ -36,54 +36,29 @@ export default function FilmCard({ item }) {
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
                 />
-                {cartState ? (
-                    <Box
-                        sx={{
-                            display: hover ? "block" : "none",
-                            position: "absolute",
-                            top: "-30px",
-                            right: "-25px",
-                            borderRadius: "50%",
-                            width: "80px",
-                            height: "80px",
-                            backgroundColor: "rgb(80,80,80,0.7)",
-                            padding: "40px 0  0 18px ",
-                        }}
-                        onMouseEnter={() => setHover(true)}
-                        onMouseLeave={() => setHover(false)}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setCartState(false);
-                            addFilmToCart(item);
-                        }}
-                    >
-                        <BookmarkAddOutlinedIcon />
-                    </Box>
-                ) : (
-                    <Box
-                        sx={{
-                            display: hover ? "block" : "none",
-                            position: "absolute",
-                            top: "-30px",
-                            right: "-25px",
-                            borderRadius: "50%",
-                            width: "80px",
-                            height: "80px",
-                            backgroundColor: "rgb(80,80,80,0.7)",
-                            padding: "40px 0  0 18px ",
-                        }}
-                        onMouseEnter={() => setHover(true)}
-                        onMouseLeave={() => setHover(false)}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setCartState(true);
-                            deleteFilmToCart(item.id);
-                        }}
-                    >
-                        <BookmarkAddedOutlinedIcon />
-                    </Box>
-                )}
-
+                <Box
+                    sx={{
+                        display: hover ? "block" : "none",
+                        position: "absolute",
+                        top: "-30px",
+                        right: "-25px",
+                        borderRadius: "50%",
+                        width: "80px",
+                        height: "80px",
+                        backgroundColor: "rgb(80,80,80,0.7)",
+                        padding: "40px 0  0 18px ",
+                    }}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setCartState(false);
+                        addFilmToCart(item);
+                    }}
+                >
+                    <BookmarkAddOutlinedIcon />
+                </Box>
+                {/* <BookmarkAddedOutlinedIcon /> */}
                 <CardContent sx={{ height: "20%" }}>
                     <Typography gutterBottom variant="h5" component="div">
                         {item.name}
